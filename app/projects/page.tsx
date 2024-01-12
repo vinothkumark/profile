@@ -1,4 +1,4 @@
-import project from '../../sanity/'
+// import project from '../../sanity/'
 import { client } from "../lib/sanity"
 import Image from 'next/image';
 
