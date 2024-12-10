@@ -6,7 +6,7 @@ import React, { Suspense } from "react";
 const inter = Inter({ subsets: ['latin'] })
 import Navbar from '@/app/components/Navbar'
 import Provider from './components/Providers'
-import Footer from './components/Footer'
+import Footer from '@/app/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Vinoth Kumar Profile',
