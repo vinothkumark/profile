@@ -8,7 +8,11 @@ export default function Experience() {
                     </h1>
                 </div>
                 <div className=' space-y-2 xl:grid xl:grid-cols-1 xl:gap-x-8 xl:space-y-0'>
-                    <div className="flex flex-col pt-8">
+                    <div className="flex flex-col pt-8 space-y-4">
+                        <p>
+                            <strong>Procyon Technostructure,</strong> <br />
+                            6 monts, January 2024 to June 2024
+                        </p>
                         <p>
                             <strong> Kapitus Strategies Services India Pvt. Ltd,</strong> <br />
                             Lead, 4 years, September 2019 to August 2023

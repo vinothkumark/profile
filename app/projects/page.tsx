@@ -1,54 +1,93 @@
-// import project from '../../sanity/'
-import { client } from "../lib/sanity"
+'use client'
 import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from "react";
 
-interface Data {
-    title: string,
-    link: string,
-    id: string,
-    imageUrl: string
+interface Post {
+    id: number;
+    title: string;
+    body: string;
+    link: string;
+    image: string;
 }
 
-async function getProjects() {
-    const query = `*[_type=='project'] {
-        title,
-          overview,
-          link,
-          _id,
-          "imageUrl": Image.asset->url
-      }`
+export default function Projects() {
+    const [data, setData] = useState<Post[] | null>(null); // Define the type
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
-    const data = await client.fetch(query);
-    return data;
-}
+    useEffect(() => {
 
+        const fetchData = async () => {
+            setLoading(true); // Start loading
+            try {
+                const response = await fetch("/api/projects");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch data");
+                }
+                const result = await response.json();
+                setData(result); // Set the fetched data
+            } catch (err) {
+                // setError(err); 
+                // Set error if any
+            } finally {
+                setLoading(false); // Stop loading
+            }
+        };
 
-export default async function Projects() {
-    const data: Data[] = await getProjects();
-    // console.log(data);
+        fetchData();
+        // }
+    }, []);
+
+    // console.log(projects);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
+    if (!data) {
+        return <div>No data available</div>;
+    }
+
     return (
         <>
-            <div className="divide-y divide-gray-200 dark:divide-gray-700">
+            <div className="divide-y divide-gray-200 dark:divide-gray-900">
+
                 <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-                    <h1 className="text-3xl font-extrabold leading-9 tracking-light text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">All Projects</h1>
+                    <h1 className="text-3xl font-extrabold leading-9 tracking-light text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">Projects</h1>
                 </div>
-                <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-10 p-8">
+                <div className="h-auto align-center py-8">
+                    Most familier projects which I involved individually and developed with a team in my 16 years experience. Also I got lot of opportunities to learn new technology, when ever the situation comes. Also I got opportunity to handled team around <b>14</b> to <b>49</b> resources when I was working as a Lead.
+                </div>
+                <div className="grid gap-4 sm:grid-cols-1 md:gap-6 lg:grid-cols-3 lg:gap-4 p-8">
+
+
                     {data?.map((projects: any) => (
-                        <article key={projects._id} className="overflow-hidden dark:border-zinc-600 rounded-lg bg-white shadow-lg dark:bg-black dark:shadow-gray-700 shadow-teal-100">
-                            <div className="h-56 w-full relative">
-                                <Image src={projects.imageUrl} fill alt={projects.title} className="w-full h-full object-cover" />
-                            </div>
+                        <article key={projects?.id} className="overflow-hidden dark:border-zinc-600 rounded-lg bg-white shadow-lg dark:bg-black dark:shadow-gray-900 shadow-gray-400">
+                            <Link href={projects.link} target='_blank'>
+                                <div className="h-56 w-full relative">
+                                    <Image src={projects?.image} fill alt={projects.title} priority className="w-full h-full object-cover" />
+                                </div>
+                            </Link>
                             <div className="p-6">
-                                <a href={projects.link} target="_blank">
+                                <Link href={projects?.link} target="_blank">
                                     <h3 className="text-lg font-medium text-gray-900 dark:text-white">
-                                        {projects.title}
+                                        {projects?.title}
                                     </h3>
-                                </a>
-                                <p className="line-clamp-3 mt-2 text-sm leading-relaxed text-gray-500 dark:text-gray-400">{projects.overview}
+                                </Link>
+                                <p className="line-clamp-3 mt-2 text-sm leading-relaxed text-gray-500 dark:text-gray-400">{projects?.overview}
                                 </p>
-                                <a href={projects.link} className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-500">
+                                <p className="line-clamp-3 mt-2 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Team Size: {projects?.teamSize}
+                                </p>
+                                <p className="line-clamp-3 mt-2 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Duration: {projects?.duration}
+                                </p>
+                                <Link href={projects?.link} target='_blank' className="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-500">
                                     Read More
-                                </a>
+                                </Link>
                             </div>
                         </article>
                     ))}
