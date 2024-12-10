@@ -64,7 +64,7 @@ export default function Projects() {
                     <h1 className="text-3xl font-extrabold leading-9 tracking-light text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">Projects</h1>
                 </div>
                 <div className="h-auto align-center py-8">
-                    Most familier projects which I involved individually and developed with a team in my 16 years experience. Also I got lot of opportunities to learn new technology, when ever the situation comes. Also I got opportunity to handled team around <b>14</b> to <b>49</b> resources when I was working as a Lead.
+                    Most familier projects which I involved individually and developed with a team in my 16 years experience. Also I got lot of opportunities to work with <b>Insurance Domain</b>, <b>Healthcare Products</b> and web application, <b>Blogs</b>, <b>Event Booking</b> and etc. Alo I handled team around <b>14</b> to <b>49</b> when I was working as a Lead.
                 </div>
                 <div className="grid gap-4 sm:grid-cols-1 md:gap-6 lg:grid-cols-3 lg:gap-4 p-8">
 

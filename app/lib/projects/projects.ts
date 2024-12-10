@@ -79,5 +79,45 @@ export const data = [
         "skill": "HTML, CSS, CakePHP, MySQL",
         "teamSize": "9",
         "link":"https://barossavalleyballooning.com.au/"
+    },
+    {
+        "id": 9,
+        "title": "ATN cars",
+        "overview": "Created web application to book taxi from port to city, city to airport, port to port with meet and greet option if required and it depends on the calendar availability for a family or individual.",
+        "image":"/atncars.jpg",
+        "duration": "1 year",
+        "skill": "HTML, CSS, Bootstrap, CakePHP, MySQL",
+        "teamSize": "2",
+        "link":"https://www.atncars.co.uk/"
+    },
+    {
+        "id": 10,
+        "title": "This is my india",
+        "overview": "Thisismyindia.com is a big portal about the Ancinent India, Indians culture, Movies, History, Economy, Education, Shopping, Healtcare, Election, News .",
+        "image":"/thisismyindia.jpg",
+        "duration": "3 year",
+        "skill": "HTML, CSS, Bootstrap, PHP, MySQL",
+        "teamSize": "2",
+        "link":"https://thisismyindia.com/"
+    },
+    {
+        "id": 11,
+        "title": "Sooriya Hosipital",
+        "overview": "Sooriya Hospital is one of the famous multispeciality hosipital wit a 200 bedded multi- specialty hospital in Saligramam.",
+        "image":"/sooriyahospital.jpg",
+        "duration": "2 year",
+        "skill": "HTML, CSS, Bootstrap",
+        "teamSize": "4",
+        "link":"https://www.sooriyahospital.com/"
+    },
+    {
+        "id": 12,
+        "title": "Thyrocare",
+        "overview": "I worked as a vendor in Thyrocare project. Thyrocare is India's first fully automated diagnostic laboratory with a focus on providing quality at affordable costs to laboratories and hospitals in India and other countries.",
+        "image":"/thyrocare.jpg",
+        "duration": "1 year",
+        "skill": "HTML, CSS, Bootstrap",
+        "teamSize": "12",
+        "link":"https://www.thyrocare.com/"
     }
 ]
