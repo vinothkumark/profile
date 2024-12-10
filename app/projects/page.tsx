@@ -9,6 +9,9 @@ interface Post {
     body: string;
     link: string;
     image: string;
+    overview:string;
+    duration:string;
+    teamSize: string;
 }
 
 export default function Projects() {

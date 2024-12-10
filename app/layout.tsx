@@ -27,9 +27,9 @@ export default function RootLayout({
           <main className='max-w-6xl px-4 mx-auto sm:px-6 lg:px-8'>
             {children}
           </main>
-          <Suspense fallback={<div>Loading footer...</div>}>
+          {/* <Suspense fallback={<div>Loading footer...</div>}> */}
             <Footer />
-          </Suspense>
+          {/* </Suspense> */}
         </Provider>
       </body>
     </html>
