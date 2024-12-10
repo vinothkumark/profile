@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-export async function Footer() {
+export default async function Footer() {
     const today = new Date();
     const year = format(today, "yyyy"); 
     return (
